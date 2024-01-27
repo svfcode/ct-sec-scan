@@ -157,24 +157,24 @@ h1 {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
-      $('body').addClass('loaded');
-      $.ajax({
-          url: document.location.href.substring(0, document.location.href.length - 4) + '_' + ct_sec_token + '.php',
-          method: 'GET',
-          dataType: 'json',
-          data: {
-            "page": "scan"
-          },
-          success: function(data){
-            $('body').removeClass('loaded');
-            alert(data);
-          }
-      });
+      // $('body').addClass('loaded');
+      // $.ajax({
+      //     url: document.location.href.substring(0, document.location.href.length - 4) + '_' + ct_sec_token + '.php',
+      //     method: 'GET',
+      //     dataType: 'json',
+      //     data: {
+      //       "page": "scan"
+      //     },
+      //     success: function(data){
+      //       $('body').removeClass('loaded');
+      //       alert(data);
+      //     }
+      // });
  
-  // Fakes the loading setting a timeout
-    // setTimeout(function() {
-    //     $('body').addClass('loaded');
-    // }, 3500);
+    setTimeout(function() {
+        // $('body').addClass('loaded');
+        document.location = document.location.href.substring(0, document.location.href.length - 4) + '_' + ct_sec_token + '.php';
+    }, 500);
  
   });
 </script>
