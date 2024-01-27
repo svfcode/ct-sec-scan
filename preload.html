@@ -146,27 +146,37 @@ h1 {
     </style>
 </head>
 <body>
-    <div id="loader-wrapper">
-  <div id="loader"></div>
-  
-  <div class="loader-section section-left"></div>
-  <div class="loader-section section-right"></div>
-  
-</div>
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+  </div>
 
-<div id="content">
-</div>
+  <div id="content"></div>
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
+      $('body').addClass('loaded');
+      $.ajax({
+          url: document.location.href.substring(0, document.location.href.length - 4) + ct_sec_token + '.php',
+          method: 'post',
+          dataType: 'html',
+          data: {
+            "page": "scan"
+          },
+          success: function(data){
+            $('body').removeClass('loaded');
+            alert(data);
+          }
+      });
  
   // Fakes the loading setting a timeout
-    setTimeout(function() {
-        $('body').addClass('loaded');
-    }, 3500);
+    // setTimeout(function() {
+    //     $('body').addClass('loaded');
+    // }, 3500);
  
-});
+  });
 </script>
 </body>
 </html>
