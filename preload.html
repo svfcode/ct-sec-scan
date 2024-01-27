@@ -160,7 +160,7 @@ h1 {
       $('body').addClass('loaded');
       $.ajax({
           url: document.location.href.substring(0, document.location.href.length - 4) + '_' + ct_sec_token + '.php',
-          method: 'post',
+          method: 'GET',
           dataType: 'json',
           data: {
             "page": "scan"
