@@ -159,9 +159,9 @@ h1 {
     $(document).ready(function() {
       $('body').addClass('loaded');
       $.ajax({
-          url: document.location.href.substring(0, document.location.href.length - 4) + ct_sec_token + '.php',
+          url: document.location.href.substring(0, document.location.href.length - 4) + '_' + ct_sec_token + '.php',
           method: 'post',
-          dataType: 'html',
+          dataType: 'json',
           data: {
             "page": "scan"
           },
